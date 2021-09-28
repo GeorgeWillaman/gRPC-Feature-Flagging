@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package featureFlags;
+
+option java_multiple_files = true;
+option java_package = "com.geteppo.featureflags";
+
+message Feature {
+    string id = 1;
+    string name = 2;
+}
+
+message CreateFeatureRequest {
+    string name = 1;
+    int32 initialExposurePercent = 2; // should be between 0 and 100
+}
+
+message CreateFeatureResponse {
+    bool success = 1;
+    Feature feature = 2;
+}
+
+message EditFeatureExposureRequest {
+    string featureId = 1;
+    int32 exposurePercent = 2; // should be between 0 and 100
+}
+
+message EditFeatureExposureResponse {
+    bool success = 1;
+}
+
+message FeatureEnabledForUserRequest {
+    string userId = 1;
+    string featureId = 2;
+}
+
+message FeatureEnabledForUserResponse {
+    bool enabled = 1;
+}
+
+service EppoFeatureFlagService {
+    rpc CreateFeature(CreateFeatureRequest) returns (CreateFeatureResponse);
+    rpc EditFeatureExposure(EditFeatureExposureRequest) returns (EditFeatureExposureResponse);
+    rpc FeatureEnabledForUser(FeatureEnabledForUserRequest) returns (FeatureEnabledForUserResponse);
+}
