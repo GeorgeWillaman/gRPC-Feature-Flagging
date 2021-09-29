@@ -1,6 +1,6 @@
 # gRPC Feature Flagging Service
 
-This is a lightweight gRPC feature flagging system with only a few dependencies:
+This is a lightweight gRPC feature flagging system with only a few dependencies, some of the crucial being:
 - TypeScript
 - Prisma
 - SQLite
