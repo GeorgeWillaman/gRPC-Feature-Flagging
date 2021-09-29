@@ -12,16 +12,43 @@ export interface User {
   createdAt: string;
 }
 
+export interface Flag {
+  id: number;
+  user: number;
+  feature: number;
+  createdAt: string;
+}
+
+interface FeatureEnabledForUserRequest {
+  userId: string;
+  featureId: number;
+}
+
+interface FeatureEnabledForUserResponse {
+  enabled: boolean;
+}
+
+interface EditFeatureExposureRequest {
+  featureId: number;
+  exposurePercent: number;
+}
+
+interface EditFeatureExposureResponse {
+  success: boolean;
+}
+
 interface CreateFeatureRequest {
   name: string;
   initialExposurePercent: number;
 }
 
 interface CreateFeatureResponse {
-  success: boolean,
-  feature: Feature
+  success: boolean;
+  feature: Feature;
 }
 
 export interface FeatureFlagsService {
   CreateFeature: handleUnaryCall<CreateFeatureRequest, CreateFeatureResponse>;
+  EditFeatureExposure: handleUnaryCall<EditFeatureExposureRequest, EditFeatureExposureResponse>;
+  FeatureEnabledForUser: handleUnaryCall<FeatureEnabledForUserRequest, FeatureEnabledForUserResponse>;
 }
