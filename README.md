@@ -21,3 +21,6 @@ There are 3 deliverables that should come in the form of this git repository (ei
 1. A `gRPC` server that implements the `EppoFeatureFlagService` interface
 2. Instructions on how to test your solution
 3. Discussion of limitations or known issues with your solution, how you'd change it for production given more time and resources, and any other thoughts you have about the problem, your solution, or the tools you used.
+
+///
+Prisma.io implementations dont allow memory url
