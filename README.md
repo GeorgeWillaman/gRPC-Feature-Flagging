@@ -32,10 +32,12 @@ npm run dev # Cleans dist, copies proto files, compiles, and runs. Optimization 
 ```
 
 # What needs to be done
-* Sanity Checks
+* Sanity checks
   * Currently there are barely any input validation and sanity checks. For production, this is a crucial element. I did not have time to implement them to a degree that I was happy with.
 * Migration to a persistent database
-  * For a production implementation, SQLite **should not** be used. MongoDB/PostgreSQL are 2 great alternatives for both SQL and NoSQL experts.
+  * For a production implementation, SQLite **should not** be used. MongoDB/PostgreSQL are 2 great alternatives for both SQL and NoSQL experts
+* Proper error logging
+  * Adopt application monitoring software such as sentry.io
 
 (I'll come back to this!)
 ## Notes
